@@ -26,6 +26,7 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Column(
         children: [
           TopBar(
@@ -40,9 +41,7 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
             child: TabBarView(
               controller: _mainScreenController.tabController,
               children: [
-                Container(
-                  child: Text("1 !!!!!"),
-                ),
+                SquadsScreen(),
                 Container(
                   child: Text("2 !!!!!"),
                 ),
