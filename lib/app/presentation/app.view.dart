@@ -17,7 +17,7 @@ class AppView extends StatelessWidget {
     ));
 
     return ScreenUtilInit(
-      designSize: const Size(375, 830),
+      designSize: const Size(1440, 956),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {

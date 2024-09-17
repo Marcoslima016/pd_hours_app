@@ -4,6 +4,7 @@ abstract class IThemeColorsTokens {
   Color get primary;
   Color get onPrimary;
   Color get secondary;
+  Color get tertiary;
   Color get onSecondary;
   Color get disable;
   Color get onDisable;
@@ -11,22 +12,26 @@ abstract class IThemeColorsTokens {
   Color get onSurface;
   Color get background;
   Color get onBackground;
+  Color get black;
 }
 
 class ColorsLight implements IThemeColorsTokens {
   ColorsLight();
 
   @override
-  final Color primary = const Color.fromARGB(255, 27, 60, 170);
+  final Color primary = const Color(0xff4263EB);
 
   @override
-  final Color onPrimary = const Color.fromARGB(255, 239, 239, 239);
+  final Color onPrimary = const Color(0xff212429);
 
   @override
-  final Color secondary = Colors.grey[850]!;
+  final Color secondary = const Color(0xff7048E8);
 
   @override
-  Color get onSecondary => Colors.white;
+  Color get onSecondary => const Color(0xff212429);
+
+  @override
+  final Color tertiary = const Color(0xff51CF66);
 
   @override
   final Color surface = const Color.fromARGB(255, 255, 255, 255);
@@ -45,4 +50,7 @@ class ColorsLight implements IThemeColorsTokens {
 
   @override
   Color get onDisable => const Color.fromARGB(255, 166, 165, 165);
+
+  @override
+  Color get black => const Color(0xff212429);
 }

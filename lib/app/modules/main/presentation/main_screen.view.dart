@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pd_hours_app/app/app.exports.dart';
 import 'package:pd_hours_app/app/presentation/app.view.dart';
 
 import 'presentation.exports.dart';
@@ -27,36 +28,9 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
     return Scaffold(
       body: Column(
         children: [
-          // SizedBox(
-          //   width: 1.sw,
-          //   child: Row(
-          //     children: [
-          //       Container(
-          //         width: 1.sw,
-          //         child: TabBar(
-          //           controller: _mainScreenController.tabController,
-          //           tabs: [
-          //             Tab(
-          //               text: "aba 1",
-          //               icon: Icon(
-          //                 Icons.home,
-          //                 color: Colors.indigo.shade500,
-          //               ),
-          //             ),
-          //             Tab(
-          //               text: "aba 2",
-          //               icon: Icon(
-          //                 Icons.home,
-          //                 color: Colors.indigo.shade500,
-          //               ),
-          //             ),
-          //           ],
-          //         ),
-          //       ),
-          //       // Expanded(child: Container()),
-          //     ],
-          //   ),
-          // ),
+          TopBar(
+            tabController: _mainScreenController.tabController,
+          ),
 
           //- - - - - - - - - - - - - -
 
