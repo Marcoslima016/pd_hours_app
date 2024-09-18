@@ -13,6 +13,7 @@ abstract class IThemeColorsTokens {
   Color get background;
   Color get onBackground;
   Color get black;
+  Color get grey3;
 }
 
 class ColorsLight implements IThemeColorsTokens {
@@ -54,4 +55,7 @@ class ColorsLight implements IThemeColorsTokens {
 
   @override
   Color get black => const Color(0xff212429);
+
+  @override
+  Color get grey3 => const Color(0xffACB5BD);
 }
