@@ -49,10 +49,11 @@ class ABoxButton extends StatelessWidget {
     return ElevatedButton(
       style: ButtonStyle(
         elevation: MaterialStateProperty.all(0),
+        visualDensity: VisualDensity.standard,
         padding: MaterialStateProperty.all(
           EdgeInsets.only(
-            top: 0.sp,
-            bottom: 0.sp,
+            top: 0,
+            bottom: 0,
             left: 50.sp,
             right: 50.sp,
           ),
@@ -66,7 +67,8 @@ class ABoxButton extends StatelessWidget {
       ),
       onPressed: active ? onClick : () {},
       child: Padding(
-        padding: EdgeInsets.only(top: 15.h, bottom: 15.h),
+        // padding: EdgeInsets.only(top: 15.h, bottom: 15.h),
+        padding: EdgeInsets.only(top: 0, bottom: 0),
         child: Text(
           text,
           style: TextStyle(
@@ -74,7 +76,7 @@ class ABoxButton extends StatelessWidget {
             fontSize: 16.sp,
             fontFamily: "Roboto",
             fontWeight: FontWeight.w500,
-            height: 1,
+            // height: 1,
           ),
           textAlign: TextAlign.center,
         ),

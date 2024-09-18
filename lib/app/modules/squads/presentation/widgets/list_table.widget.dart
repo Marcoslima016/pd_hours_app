@@ -25,11 +25,11 @@ class ListTable extends StatelessWidget {
           ),
         ],
       ),
-      child: _buildEmptyState(),
+      child: _buildEmptyState(context),
     );
   }
 
-  Widget _buildEmptyState() {
+  Widget _buildEmptyState(BuildContext context) {
     return Column(
       children: [
         SizedBox(height: 32.h),
@@ -47,7 +47,9 @@ class ListTable extends StatelessWidget {
         ),
         SizedBox(height: 64.h),
         ABoxButton.primary(
-          onClick: () async {},
+          onClick: () async {
+            SquadsController.I.onTapCreateSquad(context);
+          },
           text: "Criar squad",
           active: true,
         ),

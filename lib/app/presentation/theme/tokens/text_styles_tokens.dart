@@ -17,6 +17,20 @@ class ThemeTextStylesTokens {
     ),
   );
 
+  static ThemeTextStyle h2 = ThemeTextStyle.style(
+    _parent.copyWith(
+      fontSize: 38,
+      color: AppTheme.colors.black,
+    ),
+  );
+
+  static ThemeTextStyle h5 = ThemeTextStyle.style(
+    _parent.copyWith(
+      fontSize: 12,
+      color: AppTheme.colors.black,
+    ),
+  );
+
   static ThemeTextStyle p = ThemeTextStyle.style(
     _parent.copyWith(
       fontSize: 16,

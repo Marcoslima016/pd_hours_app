@@ -19,7 +19,11 @@ class SquadsController extends ValueNotifier<ISquadsState> {
     return true;
   }
 
-  Future onTapAddSquad(BuildContext context) async {
-    //
+  Future onTapCreateSquad(BuildContext context) async {
+    try {
+      await dependencies!.createSquadController!.run(context: context);
+    } catch (e) {
+      rethrow;
+    }
   }
 }
