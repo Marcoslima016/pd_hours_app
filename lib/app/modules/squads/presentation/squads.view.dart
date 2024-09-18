@@ -25,6 +25,7 @@ class _SquadsScreenState extends State<SquadsScreen> {
       height: 1.sh,
       padding: EdgeInsets.only(
         left: 168.w,
+        right: 473.w,
         top: 119.h,
         // bottom: 119.h,
       ),

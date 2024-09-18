@@ -11,7 +11,17 @@ class InitialState extends ISquadsState {
     try {
       controller.value = Loading();
       controller.dependencies!.bind();
-      controller.value = Loaded();
+
+      // await controller.dependencies!.usecaseLoadSquads!();
+
+      controller.value = Loaded(
+        squadsList: [
+          Squad(
+            id: 1,
+            name: "Squad1",
+          ),
+        ],
+      );
     } catch (e) {
       rethrow;
     }
@@ -20,4 +30,11 @@ class InitialState extends ISquadsState {
 
 class Loading extends ISquadsState {}
 
-class Loaded extends ISquadsState {}
+class Loaded extends ISquadsState {
+  @override
+  List<Squad> squadsList;
+
+  Loaded({
+    required this.squadsList,
+  });
+}

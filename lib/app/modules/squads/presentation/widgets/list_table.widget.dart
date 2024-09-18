@@ -5,10 +5,61 @@ import 'package:pd_hours_app/app/presentation/theme/widgets/atoms/box_button.ato
 import 'package:pd_hours_app/lib.exports.dart';
 
 class ListTable extends StatelessWidget {
-  const ListTable({super.key});
+  ListTable({super.key});
+
+  final List<Widget> _headerValues = [
+    SizedBox(
+      width: 154.w,
+      child: Center(
+        child: Text(
+          "ID",
+          style: TextStyle(
+            color: Colors.white,
+            fontFamily: "Roboto",
+            fontWeight: FontWeight.w700,
+            fontSize: 16.sp,
+          ),
+        ),
+      ),
+    ),
+    Expanded(
+      child: Padding(
+        padding: EdgeInsets.only(left: 32.w),
+        child: Text(
+          "Nome",
+          style: TextStyle(
+            color: Colors.white,
+            fontFamily: "Roboto",
+            fontWeight: FontWeight.w700,
+            fontSize: 16.sp,
+          ),
+        ),
+      ),
+    ),
+  ];
+
+  final List<List<Widget>> _tableLines = [];
+
+  Widget _buildLineTextWidget(BuildContext context, String text) {
+    return AText.p(text);
+  }
 
   @override
   Widget build(BuildContext context) {
+    _tableLines.add([
+      SizedBox(
+        width: 154.w,
+        child: Center(
+          child: _buildLineTextWidget(context, "1"),
+        ),
+      ),
+      Expanded(
+        child: Padding(
+          padding: EdgeInsets.only(left: 32.w),
+          child: _buildLineTextWidget(context, "Front-end"),
+        ),
+      ),
+    ]);
     return Container(
       // width: 1.sw,
       // height: 0.3.sh,
@@ -25,7 +76,89 @@ class ListTable extends StatelessWidget {
           ),
         ],
       ),
-      child: _buildEmptyState(context),
+      // child: _buildEmptyState(context),
+      child: _buildContent(context),
+    );
+  }
+
+  Widget _buildContent(BuildContext context) {
+    return Container(
+      width: 1.sw,
+      height: 300.h,
+      margin: EdgeInsets.only(top: 64.sp),
+      child: Column(
+        children: [
+          //---------------------------------------------------
+          // HEADER
+
+          _buildTableHeader(context),
+
+          //-----------------------------------------------------
+
+          // LINES
+
+          _buildTableRows(context),
+
+          // Column(
+          //   children: [
+          //     Container(
+          //       width: 1.sw,
+          //       height: 43.h,
+          //       decoration: BoxDecoration(color: Color(0xfffafafa)),
+          //     ),
+          //   ],
+          // ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildTableRows(BuildContext context) {
+    // List<Widget> rowChildren = List.generate(
+    //   _tableLines.length,
+    //   (index) => _tableLines[index],
+    // ).toList();
+
+    List<Widget> rowChildren = List.generate(
+      _tableLines.length,
+      (index) => Container(
+        width: 1.sw,
+        height: 43.h,
+        decoration: const BoxDecoration(color: Color(0xfffafafa)),
+        child: Row(
+          children: List.generate(
+            _tableLines[index].length,
+            (index2) => _tableLines[index][index2],
+          ),
+        ),
+      ),
+    ).toList();
+
+    return Column(
+      children: rowChildren,
+    );
+  }
+
+  Widget _buildTableHeader(BuildContext context) {
+    List<Widget> headerChildren = List.generate(
+      _headerValues.length,
+      (index) => _headerValues[index],
+    ).toList();
+
+    return Container(
+      width: 1.sw,
+      height: 43.sp,
+      padding: EdgeInsets.symmetric(vertical: 12.sp),
+      decoration: BoxDecoration(
+        color: AppTheme.colors.primary,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(8.sp),
+          topRight: Radius.circular(8.sp),
+        ),
+      ),
+      child: Row(
+        children: headerChildren,
+      ),
     );
   }
 
