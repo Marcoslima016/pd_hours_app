@@ -14,8 +14,7 @@ class LoadSquads implements ILoadSquads {
   @override
   Future<List<Squad>> call() async {
     try {
-      await squadsRepository.loadSquads();
-      return [];
+      return await squadsRepository.loadSquads();
     } catch (e) {
       rethrow;
     }

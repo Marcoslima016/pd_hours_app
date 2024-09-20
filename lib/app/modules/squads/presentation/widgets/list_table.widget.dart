@@ -5,64 +5,22 @@ import 'package:pd_hours_app/app/presentation/theme/widgets/atoms/box_button.ato
 import 'package:pd_hours_app/lib.exports.dart';
 
 class ListTable extends StatelessWidget {
-  ListTable({super.key});
+  ListTable({
+    super.key,
+    required this.headerCells,
+    required this.tableLines,
+    required this.isEmpty,
+  });
 
-  final List<Widget> _headerValues = [
-    SizedBox(
-      width: 154.w,
-      child: Center(
-        child: Text(
-          "ID",
-          style: TextStyle(
-            color: Colors.white,
-            fontFamily: "Roboto",
-            fontWeight: FontWeight.w700,
-            fontSize: 16.sp,
-          ),
-        ),
-      ),
-    ),
-    Expanded(
-      child: Padding(
-        padding: EdgeInsets.only(left: 32.w),
-        child: Text(
-          "Nome",
-          style: TextStyle(
-            color: Colors.white,
-            fontFamily: "Roboto",
-            fontWeight: FontWeight.w700,
-            fontSize: 16.sp,
-          ),
-        ),
-      ),
-    ),
-  ];
+  final List<Widget> headerCells;
 
-  final List<List<Widget>> _tableLines = [];
+  final List<List<Widget>> tableLines;
 
-  Widget _buildLineTextWidget(BuildContext context, String text) {
-    return AText.p(text);
-  }
+  final bool isEmpty;
 
   @override
   Widget build(BuildContext context) {
-    _tableLines.add([
-      SizedBox(
-        width: 154.w,
-        child: Center(
-          child: _buildLineTextWidget(context, "1"),
-        ),
-      ),
-      Expanded(
-        child: Padding(
-          padding: EdgeInsets.only(left: 32.w),
-          child: _buildLineTextWidget(context, "Front-end"),
-        ),
-      ),
-    ]);
     return Container(
-      // width: 1.sw,
-      // height: 0.3.sh,
       padding: EdgeInsets.all(32.sp),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -77,15 +35,28 @@ class ListTable extends StatelessWidget {
         ],
       ),
       // child: _buildEmptyState(context),
-      child: _buildContent(context),
+      child: Column(
+        children: [
+          isEmpty == false ? _buildContent(context) : _buildEmptyState(context),
+          SizedBox(height: 64.h),
+          ABoxButton.primary(
+            onClick: () async {
+              SquadsController.I.onTapRedirectToCreateSquad(context);
+            },
+            text: "Criar squad",
+            active: true,
+          ),
+          SizedBox(height: 32.h),
+        ],
+      ),
     );
   }
 
   Widget _buildContent(BuildContext context) {
     return Container(
       width: 1.sw,
-      height: 300.h,
-      margin: EdgeInsets.only(top: 64.sp),
+      // height: 300.h,
+      margin: EdgeInsets.only(top: 32.sp),
       child: Column(
         children: [
           //---------------------------------------------------
@@ -98,37 +69,22 @@ class ListTable extends StatelessWidget {
           // LINES
 
           _buildTableRows(context),
-
-          // Column(
-          //   children: [
-          //     Container(
-          //       width: 1.sw,
-          //       height: 43.h,
-          //       decoration: BoxDecoration(color: Color(0xfffafafa)),
-          //     ),
-          //   ],
-          // ),
         ],
       ),
     );
   }
 
   Widget _buildTableRows(BuildContext context) {
-    // List<Widget> rowChildren = List.generate(
-    //   _tableLines.length,
-    //   (index) => _tableLines[index],
-    // ).toList();
-
     List<Widget> rowChildren = List.generate(
-      _tableLines.length,
+      tableLines.length,
       (index) => Container(
         width: 1.sw,
         height: 43.h,
         decoration: const BoxDecoration(color: Color(0xfffafafa)),
         child: Row(
           children: List.generate(
-            _tableLines[index].length,
-            (index2) => _tableLines[index][index2],
+            tableLines[index].length,
+            (index2) => tableLines[index][index2],
           ),
         ),
       ),
@@ -141,8 +97,8 @@ class ListTable extends StatelessWidget {
 
   Widget _buildTableHeader(BuildContext context) {
     List<Widget> headerChildren = List.generate(
-      _headerValues.length,
-      (index) => _headerValues[index],
+      headerCells.length,
+      (index) => headerCells[index],
     ).toList();
 
     return Container(
@@ -178,15 +134,15 @@ class ListTable extends StatelessWidget {
             color: AppTheme.colors.grey3,
           ),
         ),
-        SizedBox(height: 64.h),
-        ABoxButton.primary(
-          onClick: () async {
-            SquadsController.I.onTapCreateSquad(context);
-          },
-          text: "Criar squad",
-          active: true,
-        ),
-        SizedBox(height: 32.h),
+        // SizedBox(height: 64.h),
+        // ABoxButton.primary(
+        //   onClick: () async {
+        //     SquadsController.I.onTapCreateSquad(context);
+        //   },
+        //   text: "Criar squad",
+        //   active: true,
+        // ),
+        // SizedBox(height: 32.h),
       ],
     );
   }

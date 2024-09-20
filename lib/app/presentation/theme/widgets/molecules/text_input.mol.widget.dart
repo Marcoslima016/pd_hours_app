@@ -49,7 +49,7 @@ class MTextInput extends StatelessWidget {
               )
             : Container(),
         SizedBox(
-          height: 56.h,
+          height: 56.sp,
           child: TextFormField(
             controller: controller,
             obscureText: obscure,
@@ -64,26 +64,9 @@ class MTextInput extends StatelessWidget {
               fillColor: AppTheme.colors.surface,
               filled: true,
               hintText: hintText,
-
-              // label: Container(
-              //   color: Colors.transparent,
-              //   child: Padding(
-              //     padding: const EdgeInsets.only(top: 0),
-              //     child: Text(
-              //       label,
-              //       style: TextStyle(
-              //         fontSize: 20.h,
-              //         color: const Color.fromARGB(255, 186, 186, 186),
-              //         fontWeight: FontWeight.w400,
-              //       ),
-              //     ),
-              //   ),
-              // ),
-              // alignLabelWithHint: true,
-              // floatingLabelBehavior: FloatingLabelBehavior.always,
               hintStyle: TextStyle(
-                fontSize: 21.sp,
-                color: const Color.fromARGB(255, 191, 191, 191),
+                fontSize: 20.sp,
+                color: const Color.fromARGB(255, 226, 226, 226),
                 fontWeight: FontWeight.w400,
                 height: 1,
               ),

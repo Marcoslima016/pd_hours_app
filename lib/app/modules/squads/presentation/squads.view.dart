@@ -42,9 +42,9 @@ class _SquadsScreenState extends State<SquadsScreen> {
           valueListenable: _squadsController,
           builder: (context, ISquadsState state, child) {
             if (state is Loading) {
-              return Container();
+              return _buildLoadingState();
             } else if (state is Loaded) {
-              return buildTable(state);
+              return _buildTable(state);
             } else {
               return Container();
             }
@@ -54,12 +54,67 @@ class _SquadsScreenState extends State<SquadsScreen> {
     );
   }
 
-  Widget buildTable(ISquadsState state) {
-    return ListTable();
-    // if (state.squadsList!.isNotEmpty) {
-    //   return ListTable();
-    // } else {
-    //   return Container();
-    // }
+  Widget _buildLoadingState() {
+    return const Center(
+      child: ASpinner(),
+    );
+  }
+
+  Widget _buildTable(ISquadsState state) {
+    List<Squad> squadsList = (state as Loaded).squadsList;
+
+    return ListTable(
+      isEmpty: false,
+      headerCells: [
+        SizedBox(
+          width: 154.w,
+          child: Center(
+            child: Text(
+              "ID",
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: "Roboto",
+                fontWeight: FontWeight.w700,
+                fontSize: 16.sp,
+              ),
+            ),
+          ),
+        ),
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.only(left: 32.w),
+            child: Text(
+              "Nome",
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: "Roboto",
+                fontWeight: FontWeight.w700,
+                fontSize: 16.sp,
+              ),
+            ),
+          ),
+        ),
+      ],
+      tableLines: List.generate(
+        squadsList.length,
+        (index) {
+          Squad squad = squadsList[index];
+          return [
+            SizedBox(
+              width: 154.w,
+              child: Center(
+                child: AText.p(squad.id.toString()),
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.only(left: 32.w),
+                child: AText.p(squad.name),
+              ),
+            ),
+          ];
+        },
+      ),
+    );
   }
 }

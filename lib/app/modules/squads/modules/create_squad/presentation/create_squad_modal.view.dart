@@ -5,7 +5,11 @@ import 'package:pd_hours_app/lib.exports.dart';
 class CreateSquadModal {
   late BuildContext context;
 
-  // CreateSquadModal._();
+  final CreateSquadController controller;
+
+  CreateSquadModal({
+    required this.controller,
+  });
 
   Future show({required BuildContext context}) async {
     return await showDialog(
@@ -69,18 +73,23 @@ class CreateSquadModal {
                 SizedBox(
                   width: 350.w,
                   child: MTextInput(
-                    controller: TextEditingController(),
+                    controller: controller.inputName!,
                     hintText: "Digite o nome da squad",
                     label: "NOME DA SQUAD",
                   ),
                 ),
                 SizedBox(height: 32.h),
-                ABoxButton.primary(
-                  onClick: () async {
-                    SquadsController.I.onTapCreateSquad(context);
+                ValueListenableBuilder(
+                  valueListenable: controller.validated,
+                  builder: (context, validated, child) {
+                    return ABoxButton.primary(
+                      onClick: () async {
+                        controller.onTapCreate(context);
+                      },
+                      text: "Criar squad",
+                      active: validated,
+                    );
                   },
-                  text: "Criar squad",
-                  active: true,
                 ),
               ],
             ),

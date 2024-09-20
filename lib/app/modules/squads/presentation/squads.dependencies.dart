@@ -1,6 +1,5 @@
 import 'package:get_it/get_it.dart';
-
-import '../squads.exports.dart';
+import 'package:pd_hours_app/lib.exports.dart';
 
 class SquadsDependencies {
   late ISquadsRepository? squadsRepository;
@@ -17,7 +16,7 @@ class SquadsDependencies {
   bind() {
     createSquadController ??= CreateSquadController();
 
-    squadsRepository ??= SquadsRepository();
+    squadsRepository ??= SquadsRepository(client: DIORESTClient());
     GetIt.I.registerFactory<ISquadsRepository>(() => squadsRepository!);
 
     usecaseLoadSquads ??= LoadSquads(squadsRepository: squadsRepository!);

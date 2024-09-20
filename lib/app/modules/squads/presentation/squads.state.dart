@@ -3,6 +3,8 @@ import '../squads.exports.dart';
 abstract class ISquadsState {
   List<Squad>? get squadsList => null;
   Future initialize(SquadsController controller) async {}
+
+  Future refresh(SquadsController controller) async {}
 }
 
 class InitialState extends ISquadsState {
@@ -12,15 +14,10 @@ class InitialState extends ISquadsState {
       controller.value = Loading();
       controller.dependencies!.bind();
 
-      // await controller.dependencies!.usecaseLoadSquads!();
+      List<Squad> squads = await controller.dependencies!.usecaseLoadSquads!();
 
       controller.value = Loaded(
-        squadsList: [
-          Squad(
-            id: 1,
-            name: "Squad1",
-          ),
-        ],
+        squadsList: squads,
       );
     } catch (e) {
       rethrow;
@@ -37,4 +34,19 @@ class Loaded extends ISquadsState {
   Loaded({
     required this.squadsList,
   });
+
+  @override
+  Future refresh(SquadsController controller) async {
+    try {
+      controller.value = Loading();
+
+      List<Squad> squads = await controller.dependencies!.usecaseLoadSquads!();
+
+      controller.value = Loaded(
+        squadsList: squads,
+      );
+    } catch (e) {
+      rethrow;
+    }
+  }
 }
