@@ -56,7 +56,15 @@ class CreateEmployeeModal {
         children: [
           Container(
             margin: EdgeInsets.all(24.sp),
-            padding: EdgeInsets.symmetric(vertical: 64.sp, horizontal: 32.sp),
+            padding: AppController.instance.runningInMobile
+                ? EdgeInsets.symmetric(
+                    vertical: 32.sp,
+                    horizontal: 32.sp,
+                  )
+                : EdgeInsets.symmetric(
+                    vertical: 64.sp,
+                    horizontal: 32.sp,
+                  ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               color: Colors.white,
@@ -75,7 +83,7 @@ class CreateEmployeeModal {
                   ),
 
                   //
-                  SizedBox(height: 64.sp),
+                  AppController.instance.runningInMobile ? SizedBox(height: 32.sp) : SizedBox(height: 64.sp),
                   SizedBox(
                     width: 350.w,
                     child: MTextInput(
@@ -86,7 +94,7 @@ class CreateEmployeeModal {
                   ),
 
                   //
-                  SizedBox(height: 32.sp),
+                  AppController.instance.runningInMobile ? SizedBox(height: 15.sp) : SizedBox(height: 32.sp),
                   SizedBox(
                     width: 350.w,
                     child: MTextInput(
@@ -98,7 +106,7 @@ class CreateEmployeeModal {
                   ),
 
                   //
-                  SizedBox(height: 32.sp),
+                  AppController.instance.runningInMobile ? SizedBox(height: 15.sp) : SizedBox(height: 32.sp),
                   SizedBox(
                     width: 350.w,
                     child: MTextInput(
@@ -116,7 +124,8 @@ class CreateEmployeeModal {
                   ),
 
                   //
-                  SizedBox(height: 32.sp),
+                  AppController.instance.runningInMobile ? SizedBox(height: 22.sp) : SizedBox(height: 32.sp),
+
                   ValueListenableBuilder(
                     valueListenable: controller.validated,
                     builder: (context, validated, child) {

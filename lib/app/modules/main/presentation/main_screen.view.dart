@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pd_hours_app/app/app.exports.dart';
-import 'package:pd_hours_app/app/presentation/app.view.dart';
-
-import 'presentation.exports.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

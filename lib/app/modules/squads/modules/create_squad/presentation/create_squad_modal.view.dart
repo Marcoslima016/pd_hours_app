@@ -56,7 +56,15 @@ class CreateSquadModal {
         children: [
           Container(
             margin: EdgeInsets.all(24.sp),
-            padding: EdgeInsets.symmetric(vertical: 64.sp, horizontal: 32.sp),
+            padding: AppController.instance.runningInMobile
+                ? EdgeInsets.symmetric(
+                    vertical: 32.sp,
+                    horizontal: 32.sp,
+                  )
+                : EdgeInsets.symmetric(
+                    vertical: 64.sp,
+                    horizontal: 32.sp,
+                  ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               color: Colors.white,

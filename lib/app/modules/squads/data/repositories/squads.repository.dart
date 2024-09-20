@@ -1,7 +1,5 @@
 import 'package:pd_hours_app/lib.exports.dart';
 
-import '../../domain/domain.exports.dart';
-
 class SquadsRepository implements ISquadsRepository {
   //
 
@@ -38,12 +36,10 @@ class SquadsRepository implements ISquadsRepository {
         "name": payload.name,
       };
 
-      Map<String, dynamic> response = await client.post(
+      await client.post(
         endpoint: "/squad",
         data: requestBody,
       );
-
-      var p = "";
     } catch (e) {
       rethrow;
     }

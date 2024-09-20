@@ -1,7 +1,5 @@
 import 'package:pd_hours_app/lib.exports.dart';
 
-import '../../domain/domain.exports.dart';
-
 class EmployeesRepository implements IEmployeesRepository {
   //
 
@@ -40,7 +38,7 @@ class EmployeesRepository implements IEmployeesRepository {
         "squadId": payload.squad,
       };
 
-      Map<String, dynamic> response = await client.post(
+      await client.post(
         endpoint: "/employee",
         data: requestBody,
       );

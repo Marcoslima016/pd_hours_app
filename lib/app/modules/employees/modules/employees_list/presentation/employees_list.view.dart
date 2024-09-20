@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pd_hours_app/lib.exports.dart';
 
@@ -61,11 +63,12 @@ class _EmployeesListPageState extends State<EmployeesListPage> {
       headerCells: [
         //
 
-        SizedBox(
-          width: AppController.instance.runningInMobile ? 60.sp : 154.sp,
-          child: Center(
+        //
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.only(left: AppController.instance.runningInMobile ? 8.sp : 16.sp),
             child: Text(
-              "ID",
+              "Nome",
               style: TextStyle(
                 color: Colors.white,
                 fontFamily: "Roboto",
@@ -76,12 +79,27 @@ class _EmployeesListPageState extends State<EmployeesListPage> {
           ),
         ),
 
-        //
-        Expanded(
-          child: Padding(
-            padding: EdgeInsets.only(left: 32.sp),
+        SizedBox(
+          width: AppController.instance.runningInMobile ? 60.sp : 100.sp,
+          child: Center(
             child: Text(
-              "Nome",
+              "Horas",
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: "Roboto",
+                fontWeight: FontWeight.w700,
+                fontSize: 16.sp,
+              ),
+            ),
+          ),
+        ),
+
+        Container(
+          width: AppController.instance.runningInMobile ? 60.sp : 100.sp,
+          margin: EdgeInsets.only(left: 32.sp, right: 32.sp),
+          child: Center(
+            child: Text(
+              "Squad ID",
               style: TextStyle(
                 color: Colors.white,
                 fontFamily: "Roboto",
@@ -102,18 +120,30 @@ class _EmployeesListPageState extends State<EmployeesListPage> {
           return [
             //
 
-            SizedBox(
-              width: AppController.instance.runningInMobile ? 60.sp : 154.sp,
-              child: Center(
-                child: AText.p(employee.id.toString()),
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.only(left: AppController.instance.runningInMobile ? 8.sp : 16.sp),
+                child: AText.p(employee.name.toString()),
               ),
             ),
 
             //
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.only(left: 32.sp),
-                child: AText.p(employee.name),
+            SizedBox(
+              width: AppController.instance.runningInMobile ? 60.sp : 100.sp,
+              child: Center(
+                child: AText.p(employee.estimatedHours.toString()),
+              ),
+            ),
+
+            //
+            Container(
+              width: AppController.instance.runningInMobile ? 60.sp : 100.sp,
+              margin: EdgeInsets.only(
+                left: AppController.instance.runningInMobile ? 8.sp : 32.sp,
+                right: AppController.instance.runningInMobile ? 8.sp : 32.sp,
+              ),
+              child: Center(
+                child: AText.p(employee.squadId.toString()),
               ),
             ),
           ];
