@@ -36,9 +36,9 @@ class _SquadDetailsState extends State<SquadDetails> {
           //
           //- - - - - - - - - - - - - -
           SizedBox(height: 36.h),
-          SizedBox(
-            width: 1.sw,
-            child: Expanded(
+          Expanded(
+            child: SizedBox(
+              width: 1.sw,
               child: ASurfaceContainer(
                 child: Column(
                   children: [

@@ -18,36 +18,19 @@ class _SquadsListPageState extends State<SquadsListPage> {
   //=======================================================================================================
 
   Widget _buildBody() {
-    return SizedBox(
-      width: 1.sw,
-      height: 1.sh,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          AText.h2(
-            "Lista de Squads",
-            variation: const TextStyle(
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          SizedBox(height: 36.h),
-          Expanded(
-            child: ASurfaceContainer(
-              child: ValueListenableBuilder(
-                valueListenable: SquadsController.I,
-                builder: (context, ISquadsState state, child) {
-                  if (state is Loading) {
-                    return _buildLoadingState();
-                  } else if (state is Loaded) {
-                    return _buildTable(state);
-                  } else {
-                    return Container();
-                  }
-                },
-              ),
-            ),
-          ),
-        ],
+    return TPageFrame(
+      title: "Lista de Squads",
+      body: ValueListenableBuilder(
+        valueListenable: SquadsController.I,
+        builder: (context, ISquadsState state, child) {
+          if (state is Loading) {
+            return _buildLoadingState();
+          } else if (state is Loaded) {
+            return _buildTable(state);
+          } else {
+            return Container();
+          }
+        },
       ),
     );
   }
@@ -65,6 +48,8 @@ class _SquadsListPageState extends State<SquadsListPage> {
 
     return ListTable(
       isEmpty: false,
+      name: "squad",
+      emptyMessage: "Nenhuma squad cadastrada. Crie uma squad para começar.",
       //
       //-----------------------------------------------------------
 

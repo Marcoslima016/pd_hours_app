@@ -1,22 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pd_hours_app/app/presentation/theme/widgets/atoms/box_button.atom.widget.dart';
 import 'package:pd_hours_app/lib.exports.dart';
 
 class ListTable extends StatelessWidget {
-  ListTable({
-    super.key,
-    required this.headerCells,
-    required this.tableLines,
-    required this.isEmpty,
-  });
-
   final List<Widget> headerCells;
 
   final List<List<Widget>> tableLines;
 
   final bool isEmpty;
+
+  final String name;
+
+  final String emptyMessage;
+
+  const ListTable({
+    super.key,
+    required this.headerCells,
+    required this.tableLines,
+    required this.isEmpty,
+    required this.name,
+    required this.emptyMessage,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +33,7 @@ class ListTable extends StatelessWidget {
           onClick: () async {
             SquadsController.I.onTapRedirectToCreateSquad(context);
           },
-          text: "Criar squad",
+          text: "Criar $name",
           active: true,
         ),
         SizedBox(height: 32.sp),
@@ -113,20 +118,11 @@ class ListTable extends StatelessWidget {
         ),
         SizedBox(height: 24.sp),
         AText.p(
-          "Nenhuma squad cadastrada. Crie uma squad para começar.",
+          emptyMessage,
           variation: TextStyle(
             color: AppTheme.colors.grey3,
           ),
         ),
-        // SizedBox(height: 64.h),
-        // ABoxButton.primary(
-        //   onClick: () async {
-        //     SquadsController.I.onTapCreateSquad(context);
-        //   },
-        //   text: "Criar squad",
-        //   active: true,
-        // ),
-        // SizedBox(height: 32.h),
       ],
     );
   }
