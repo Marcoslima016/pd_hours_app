@@ -78,7 +78,7 @@ class CreateSquadModal {
                     label: "NOME DA SQUAD",
                   ),
                 ),
-                SizedBox(height: 32.h),
+                // SizedBox(height: 32.h),
                 ValueListenableBuilder(
                   valueListenable: controller.validated,
                   builder: (context, validated, child) {

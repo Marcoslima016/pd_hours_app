@@ -57,7 +57,6 @@ class ListTable extends StatelessWidget {
           _buildTableHeader(context),
 
           //-----------------------------------------------------
-
           // LINES
 
           _buildTableRows(context),
@@ -72,7 +71,15 @@ class ListTable extends StatelessWidget {
       (index) => Container(
         width: 1.sw,
         height: 43.sp,
-        decoration: const BoxDecoration(color: Color(0xfffafafa)),
+        decoration: BoxDecoration(
+          color: const Color(0xfffafafa),
+          borderRadius: index + 1 == tableLines.length
+              ? BorderRadius.only(
+                  bottomLeft: Radius.circular(8.sp),
+                  bottomRight: Radius.circular(8.sp),
+                )
+              : null,
+        ),
         child: Row(
           children: List.generate(
             tableLines[index].length,
@@ -117,7 +124,6 @@ class ListTable extends StatelessWidget {
         SvgPicture.asset(
           width: 128.w,
           "assets/icons/emoji_empty_state.svg",
-          // width: 128.sp,
         ),
         SizedBox(height: 24.sp),
         AText.p(
