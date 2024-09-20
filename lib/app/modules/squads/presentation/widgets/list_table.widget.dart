@@ -20,35 +20,19 @@ class ListTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(32.sp),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12.sp),
-        boxShadow: [
-          BoxShadow(
-            color: const Color.fromARGB(255, 33, 36, 42).withOpacity(0.05),
-            offset: const Offset(0, 2),
-            blurRadius: 4,
-            spreadRadius: 0,
-          ),
-        ],
-      ),
-      // child: _buildEmptyState(context),
-      child: Column(
-        children: [
-          isEmpty == false ? _buildContent(context) : _buildEmptyState(context),
-          SizedBox(height: 64.h),
-          ABoxButton.primary(
-            onClick: () async {
-              SquadsController.I.onTapRedirectToCreateSquad(context);
-            },
-            text: "Criar squad",
-            active: true,
-          ),
-          SizedBox(height: 32.h),
-        ],
-      ),
+    return Column(
+      children: [
+        isEmpty == false ? _buildContent(context) : _buildEmptyState(context),
+        SizedBox(height: 64.sp),
+        ABoxButton.primary(
+          onClick: () async {
+            SquadsController.I.onTapRedirectToCreateSquad(context);
+          },
+          text: "Criar squad",
+          active: true,
+        ),
+        SizedBox(height: 32.sp),
+      ],
     );
   }
 
@@ -79,7 +63,7 @@ class ListTable extends StatelessWidget {
       tableLines.length,
       (index) => Container(
         width: 1.sw,
-        height: 43.h,
+        height: 43.sp,
         decoration: const BoxDecoration(color: Color(0xfffafafa)),
         child: Row(
           children: List.generate(
@@ -121,13 +105,13 @@ class ListTable extends StatelessWidget {
   Widget _buildEmptyState(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 32.h),
+        SizedBox(height: 32.sp),
         SvgPicture.asset(
           width: 128.w,
           "assets/icons/emoji_empty_state.svg",
           // width: 128.sp,
         ),
-        SizedBox(height: 24.h),
+        SizedBox(height: 24.sp),
         AText.p(
           "Nenhuma squad cadastrada. Crie uma squad para começar.",
           variation: TextStyle(

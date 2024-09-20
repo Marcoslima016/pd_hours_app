@@ -13,11 +13,14 @@ class ABoxButton extends StatelessWidget {
 
   late final Color corTexto;
 
+  late final bool small;
+
   ABoxButton.primary({
     super.key,
     required this.onClick,
     required this.text,
     required this.active,
+    this.small = false,
   }) {
     corPrincipal = AppTheme.colors.primary;
     corTexto = Colors.grey[800]!;
@@ -49,15 +52,24 @@ class ABoxButton extends StatelessWidget {
     return ElevatedButton(
       style: ButtonStyle(
         elevation: MaterialStateProperty.all(0),
-        visualDensity: VisualDensity.standard,
-        padding: MaterialStateProperty.all(
-          EdgeInsets.only(
-            top: 0,
-            bottom: 0,
-            left: 50.sp,
-            right: 50.sp,
-          ),
-        ),
+        visualDensity: small ? VisualDensity.compact : VisualDensity.adaptivePlatformDensity,
+        padding: small
+            ? MaterialStateProperty.all(
+                EdgeInsets.only(
+                  top: 0,
+                  bottom: 0,
+                  left: 14.sp,
+                  right: 14.sp,
+                ),
+              )
+            : MaterialStateProperty.all(
+                EdgeInsets.only(
+                  top: 28.sp,
+                  bottom: 28.sp,
+                  left: 50.sp,
+                  right: 50.sp,
+                ),
+              ),
         backgroundColor: MaterialStateProperty.all(backgroundColor),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
@@ -66,20 +78,16 @@ class ABoxButton extends StatelessWidget {
         ),
       ),
       onPressed: active ? onClick : () {},
-      child: Padding(
-        // padding: EdgeInsets.only(top: 15.h, bottom: 15.h),
-        padding: EdgeInsets.only(top: 0, bottom: 0),
-        child: Text(
-          text,
-          style: TextStyle(
-            color: textColor,
-            fontSize: 16.sp,
-            fontFamily: "Roboto",
-            fontWeight: FontWeight.w500,
-            // height: 1,
-          ),
-          textAlign: TextAlign.center,
+      child: Text(
+        text,
+        style: TextStyle(
+          color: textColor,
+          fontSize: 16.sp,
+          fontFamily: "Roboto",
+          fontWeight: FontWeight.w500,
+          // height: 1,
         ),
+        textAlign: TextAlign.center,
       ),
     );
   }
