@@ -49,9 +49,12 @@ class _EmployeesListPageState extends State<EmployeesListPage> {
     List<Employee> employeesList = (state as Loaded).employeesList;
 
     return ListTable(
-      isEmpty: false,
-      name: "employee",
-      emptyMessage: "Nenhuma employee cadastrada. Crie uma employee para começar.",
+      isEmpty: employeesList.isEmpty,
+      name: "usuário",
+      emptyMessage: "Nenhum usuário cadastrado. Crie um usuário para começar.",
+      onTapCreate: () {
+        EmployeesController.I.onTapRedirectToCreateEmployee(context);
+      },
       //
       //-----------------------------------------------------------
 

@@ -29,22 +29,17 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
       backgroundColor: Colors.white,
       body: Column(
         children: [
+          //
           TopBar(
             tabController: _mainScreenController.tabController,
           ),
-
-          //- - - - - - - - - - - - - -
-
-          //- - - - - - - - - - - - - -
-
+          //
           Expanded(
             child: TabBarView(
               controller: _mainScreenController.tabController,
-              children: [
+              children: const [
                 SquadsScreen(),
-                Container(
-                  child: Text("2 !!!!!"),
-                ),
+                EmployeesScreen(),
               ],
             ),
           ),

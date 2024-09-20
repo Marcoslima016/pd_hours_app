@@ -14,6 +14,8 @@ class ListTable extends StatelessWidget {
 
   final String emptyMessage;
 
+  final Function() onTapCreate;
+
   const ListTable({
     super.key,
     required this.headerCells,
@@ -21,6 +23,7 @@ class ListTable extends StatelessWidget {
     required this.isEmpty,
     required this.name,
     required this.emptyMessage,
+    required this.onTapCreate,
   });
 
   @override
@@ -31,7 +34,7 @@ class ListTable extends StatelessWidget {
         SizedBox(height: 64.sp),
         ABoxButton.primary(
           onClick: () async {
-            SquadsController.I.onTapRedirectToCreateSquad(context);
+            onTapCreate();
           },
           text: "Criar $name",
           active: true,

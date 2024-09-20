@@ -36,14 +36,14 @@ class EmployeesRepository implements IEmployeesRepository {
     try {
       Map<String, dynamic> requestBody = {
         "name": payload.name,
+        "estimatedHours": payload.estimatedHours,
+        "squadId": payload.squad,
       };
 
       Map<String, dynamic> response = await client.post(
         endpoint: "/employee",
         data: requestBody,
       );
-
-      var p = "";
     } catch (e) {
       rethrow;
     }

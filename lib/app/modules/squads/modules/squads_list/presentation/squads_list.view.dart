@@ -49,9 +49,12 @@ class _SquadsListPageState extends State<SquadsListPage> {
     List<Squad> squadsList = (state as Loaded).squadsList;
 
     return ListTable(
-      isEmpty: false,
+      isEmpty: squadsList.isEmpty,
       name: "squad",
       emptyMessage: "Nenhuma squad cadastrada. Crie uma squad para começar.",
+      onTapCreate: () {
+        SquadsController.I.onTapRedirectToCreateSquad(context);
+      },
       //
       //-----------------------------------------------------------
 

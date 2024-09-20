@@ -19,7 +19,7 @@ class EmployeesDependencies {
     employeesRepository ??= EmployeesRepository(client: DIORESTClient());
     GetIt.I.registerFactory<IEmployeesRepository>(() => employeesRepository!);
 
-    usecaseLoadEmployees ??= LoadEmployees(employeeRepository: employeesRepository!);
+    usecaseLoadEmployees ??= LoadEmployees(employeesRepository: employeesRepository!);
     GetIt.I.registerFactory<ILoadEmployees>(() => usecaseLoadEmployees!);
   }
 }
