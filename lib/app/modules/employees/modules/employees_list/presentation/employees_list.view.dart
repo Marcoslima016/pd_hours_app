@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pd_hours_app/lib.exports.dart';
 
-import '../../../presentation/squads.state.dart';
+import '../../../presentation/employees.state.dart';
 
-class SquadsListPage extends StatefulWidget {
-  const SquadsListPage({super.key});
+class EmployeesListPage extends StatefulWidget {
+  const EmployeesListPage({super.key});
 
   @override
-  State<SquadsListPage> createState() => _SquadsListPageState();
+  State<EmployeesListPage> createState() => _EmployeesListPageState();
 }
 
-class _SquadsListPageState extends State<SquadsListPage> {
+class _EmployeesListPageState extends State<EmployeesListPage> {
   @override
   Widget build(BuildContext context) {
     return _buildBody();
@@ -21,10 +21,10 @@ class _SquadsListPageState extends State<SquadsListPage> {
 
   Widget _buildBody() {
     return TPageFrame(
-      title: "Lista de Squads",
+      title: "Lista de Employees",
       body: ValueListenableBuilder(
-        valueListenable: SquadsController.I,
-        builder: (context, ISquadsState state, child) {
+        valueListenable: EmployeesController.I,
+        builder: (context, IEmployeesState state, child) {
           if (state is Loading) {
             return _buildLoadingState();
           } else if (state is Loaded) {
@@ -45,13 +45,13 @@ class _SquadsListPageState extends State<SquadsListPage> {
 
   //=======================================================================================================
 
-  Widget _buildTable(ISquadsState state) {
-    List<Squad> squadsList = (state as Loaded).squadsList;
+  Widget _buildTable(IEmployeesState state) {
+    List<Employee> employeesList = (state as Loaded).employeesList;
 
     return ListTable(
       isEmpty: false,
-      name: "squad",
-      emptyMessage: "Nenhuma squad cadastrada. Crie uma squad para começar.",
+      name: "employee",
+      emptyMessage: "Nenhuma employee cadastrada. Crie uma employee para começar.",
       //
       //-----------------------------------------------------------
 
@@ -93,16 +93,16 @@ class _SquadsListPageState extends State<SquadsListPage> {
       //-----------------------------------------------------------
 
       tableLines: List.generate(
-        squadsList.length,
+        employeesList.length,
         (index) {
-          Squad squad = squadsList[index];
+          Employee employee = employeesList[index];
           return [
             //
 
             SizedBox(
               width: 154.sp,
               child: Center(
-                child: AText.p(squad.id.toString()),
+                child: AText.p(employee.id.toString()),
               ),
             ),
 
@@ -110,20 +110,7 @@ class _SquadsListPageState extends State<SquadsListPage> {
             Expanded(
               child: Padding(
                 padding: EdgeInsets.only(left: 32.sp),
-                child: AText.p(squad.name),
-              ),
-            ),
-
-            //
-            Padding(
-              padding: EdgeInsets.all(5.sp),
-              child: ABoxButton.primary(
-                onClick: () async {
-                  SquadsController.I.onTapVisitSquad(squad);
-                },
-                text: "Visitar squad",
-                active: true,
-                small: true,
+                child: AText.p(employee.name),
               ),
             ),
           ];

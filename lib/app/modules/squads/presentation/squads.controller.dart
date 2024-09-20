@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:pd_hours_app/lib.exports.dart';
 
+import 'squads.state.dart';
+
 class SquadsController extends ValueNotifier<ISquadsState> {
   SquadsDependencies? dependencies;
 
