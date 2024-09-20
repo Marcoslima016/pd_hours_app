@@ -62,7 +62,7 @@ class _SquadsListPageState extends State<SquadsListPage> {
         //
 
         SizedBox(
-          width: 154.sp,
+          width: AppController.instance.runningInMobile ? 60.sp : 154.sp,
           child: Center(
             child: Text(
               "ID",
@@ -79,7 +79,7 @@ class _SquadsListPageState extends State<SquadsListPage> {
         //
         Expanded(
           child: Padding(
-            padding: EdgeInsets.only(left: 32.sp),
+            padding: EdgeInsets.only(left: AppController.instance.runningInMobile ? 12.sp : 32.sp),
             child: Text(
               "Nome",
               style: TextStyle(
@@ -103,7 +103,7 @@ class _SquadsListPageState extends State<SquadsListPage> {
             //
 
             SizedBox(
-              width: 154.sp,
+              width: AppController.instance.runningInMobile ? 60.sp : 154.sp,
               child: Center(
                 child: AText.p(squad.id.toString()),
               ),
@@ -112,23 +112,36 @@ class _SquadsListPageState extends State<SquadsListPage> {
             //
             Expanded(
               child: Padding(
-                padding: EdgeInsets.only(left: 32.sp),
+                padding: EdgeInsets.only(left: AppController.instance.runningInMobile ? 12.sp : 32.sp),
                 child: AText.p(squad.name),
               ),
             ),
 
             //
-            Padding(
-              padding: EdgeInsets.all(5.sp),
-              child: ABoxButton.primary(
-                onClick: () async {
-                  SquadsController.I.onTapVisitSquad(squad);
-                },
-                text: "Visitar squad",
-                active: true,
-                small: true,
-              ),
-            ),
+            AppController.instance.runningInMobile
+                ? InkWell(
+                    onTap: () async {
+                      // SquadsController.I.onTapVisitSquad(squad);
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.all(12.sp),
+                      child: Icon(
+                        Icons.chevron_right,
+                        color: AppTheme.colors.primary,
+                      ),
+                    ),
+                  )
+                : Padding(
+                    padding: EdgeInsets.all(5.sp),
+                    child: ABoxButton.primary(
+                      onClick: () async {
+                        // SquadsController.I.onTapVisitSquad(squad);
+                      },
+                      text: "Visitar squad",
+                      active: true,
+                      small: true,
+                    ),
+                  ),
           ];
         },
       ),

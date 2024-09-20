@@ -18,7 +18,9 @@ class TopBar extends StatelessWidget {
         children: [
           Container(
             width: 1.sw,
-            padding: EdgeInsets.only(left: 160.sp, right: 160.sp),
+            padding: AppController.instance.runningInMobile
+                ? EdgeInsets.symmetric(horizontal: 24.sp)
+                : EdgeInsets.symmetric(horizontal: 160.sp),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -30,11 +32,15 @@ class TopBar extends StatelessWidget {
                   width: 50.w,
                 ),
 
-                SizedBox(height: 46.5.h),
-
-                AText.h1("PD Hours"),
-
-                SizedBox(height: 28.h),
+                AppController.instance.runningInMobile
+                    ? Container()
+                    : Column(
+                        children: [
+                          SizedBox(height: 46.5.h),
+                          AText.h1("PD Hours"),
+                          SizedBox(height: 28.h),
+                        ],
+                      ),
 
                 buildMenu(),
               ],
@@ -62,12 +68,12 @@ class TopBar extends StatelessWidget {
               return states.contains(MaterialState.focused) ? null : Colors.transparent;
             }),
             indicatorColor: AppTheme.colors.primary,
-            labelStyle: ThemeTextStylesTokens.p,
-            unselectedLabelStyle: ThemeTextStylesTokens.p.copyWith(
+            labelStyle: AppTheme.textStyles.p,
+            unselectedLabelStyle: AppTheme.textStyles.p.copyWith(
               color: AppTheme.colors.black.withOpacity(0.3),
             ),
-            indicatorPadding: EdgeInsets.only(right: 66.w),
-            labelPadding: EdgeInsets.only(right: 66.w),
+            indicatorPadding: EdgeInsets.only(right: AppController.instance.runningInMobile ? 30.sp : 66.sp),
+            labelPadding: EdgeInsets.only(right: AppController.instance.runningInMobile ? 30.sp : 66.sp),
             isScrollable: true,
             enableFeedback: false,
             tabs: const [

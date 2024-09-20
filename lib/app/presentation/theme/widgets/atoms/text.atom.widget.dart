@@ -12,28 +12,28 @@ class AText extends StatelessWidget {
     super.key,
     this.variation,
     this.align,
-  }) : style = ThemeTextStylesTokens.h1;
+  }) : style = AppTheme.textStyles.h1;
 
   AText.h2(
     this.data, {
     super.key,
     this.variation,
     this.align,
-  }) : style = ThemeTextStylesTokens.h2;
+  }) : style = AppTheme.textStyles.h2;
 
   AText.h5(
     this.data, {
     super.key,
     this.variation,
     this.align,
-  }) : style = ThemeTextStylesTokens.h5;
+  }) : style = AppTheme.textStyles.h5;
 
   AText.p(
     this.data, {
     super.key,
     this.variation,
     this.align,
-  }) : style = ThemeTextStylesTokens.p;
+  }) : style = AppTheme.textStyles.p;
 
   @override
   Widget build(BuildContext context) {

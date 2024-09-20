@@ -30,8 +30,16 @@ class ListTable extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        isEmpty == false ? _buildContent(context) : _buildEmptyState(context),
-        SizedBox(height: 64.sp),
+        Expanded(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                isEmpty == false ? _buildContent(context) : _buildEmptyState(context),
+              ],
+            ),
+          ),
+        ),
+        SizedBox(height: AppController.instance.runningInMobile ? 24.sp : 64.sp),
         ABoxButton.primary(
           onClick: () async {
             onTapCreate();
@@ -48,7 +56,7 @@ class ListTable extends StatelessWidget {
     return Container(
       width: 1.sw,
       // height: 300.h,
-      margin: EdgeInsets.only(top: 32.sp),
+      margin: EdgeInsets.only(top: AppController.instance.runningInMobile ? 0.sp : 32.sp),
       child: Column(
         children: [
           //---------------------------------------------------

@@ -21,7 +21,7 @@ class _EmployeesListPageState extends State<EmployeesListPage> {
 
   Widget _buildBody() {
     return TPageFrame(
-      title: "Lista de Employees",
+      title: "Lista de Usuários",
       body: ValueListenableBuilder(
         valueListenable: EmployeesController.I,
         builder: (context, IEmployeesState state, child) {
@@ -62,7 +62,7 @@ class _EmployeesListPageState extends State<EmployeesListPage> {
         //
 
         SizedBox(
-          width: 154.sp,
+          width: AppController.instance.runningInMobile ? 60.sp : 154.sp,
           child: Center(
             child: Text(
               "ID",
@@ -103,7 +103,7 @@ class _EmployeesListPageState extends State<EmployeesListPage> {
             //
 
             SizedBox(
-              width: 154.sp,
+              width: AppController.instance.runningInMobile ? 60.sp : 154.sp,
               child: Center(
                 child: AText.p(employee.id.toString()),
               ),

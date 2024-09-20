@@ -55,7 +55,7 @@ class CreateSquadModal {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            // width: 0.9.sw,
+            margin: EdgeInsets.all(24.sp),
             padding: EdgeInsets.symmetric(vertical: 64.sp, horizontal: 32.sp),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
@@ -78,7 +78,7 @@ class CreateSquadModal {
                     label: "NOME DA SQUAD",
                   ),
                 ),
-                // SizedBox(height: 32.h),
+                SizedBox(height: 32.h),
                 ValueListenableBuilder(
                   valueListenable: controller.validated,
                   builder: (context, validated, child) {

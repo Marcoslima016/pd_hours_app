@@ -69,9 +69,10 @@ class MTextInput extends StatelessWidget {
             filled: true,
             hintText: hintText,
             helperText: " ",
+            helperStyle: const TextStyle(fontSize: 1),
             hintStyle: TextStyle(
-              fontSize: 20.sp,
-              color: const Color.fromARGB(255, 226, 226, 226),
+              fontSize: AppController.instance.runningInMobile ? 16.sp : 20.sp,
+              color: const Color.fromARGB(255, 236, 236, 236),
               fontWeight: FontWeight.w400,
               height: 1,
             ),

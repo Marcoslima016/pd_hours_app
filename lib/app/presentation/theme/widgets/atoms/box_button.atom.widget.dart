@@ -64,8 +64,8 @@ class ABoxButton extends StatelessWidget {
               )
             : MaterialStateProperty.all(
                 EdgeInsets.only(
-                  top: 28.sp,
-                  bottom: 28.sp,
+                  top: AppController.instance.runningInMobile ? 20.sp : 28.sp,
+                  bottom: AppController.instance.runningInMobile ? 20.sp : 28.sp,
                   left: 50.sp,
                   right: 50.sp,
                 ),

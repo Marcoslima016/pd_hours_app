@@ -31,12 +31,19 @@ class _SquadsScreenState extends State<SquadsScreen>
     return Container(
       width: 1.sw,
       height: 1.sh,
-      padding: EdgeInsets.only(
-        left: 168.sp,
-        right: 473.sp,
-        top: 59.sp,
-        bottom: 100.sp,
-      ),
+      padding: AppController.instance.runningInMobile
+          ? EdgeInsets.only(
+              left: 24.sp,
+              right: 24.sp,
+              top: 24.sp,
+              bottom: 24.sp,
+            )
+          : EdgeInsets.only(
+              left: 168.sp,
+              right: 473.sp,
+              top: 59.sp,
+              bottom: 100.sp,
+            ),
       color: AppTheme.colors.background,
       child: TabBarView(
         controller: _squadsController.tabController,
