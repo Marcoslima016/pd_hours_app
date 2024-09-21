@@ -26,12 +26,30 @@ class _SquadDetailsState extends State<SquadDetails> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           //- - - - - - - - - - - - - -
+
           //
-          AText.h2(
-            SquadsController.I.focusedSquad!.name,
-            variation: const TextStyle(
-              fontWeight: FontWeight.w500,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              InkWell(
+                onTap: () {
+                  SquadsController.I.returnToSquadsList();
+                },
+                child: Icon(
+                  Icons.chevron_left,
+                  color: AppTheme.colors.primary,
+                  size: AppController.instance.runningInMobile ? 22.sp : 38.sp,
+                ),
+              ),
+              SizedBox(width: 15.w),
+              AText.h2(
+                SquadsController.I.focusedSquad!.name,
+                variation: const TextStyle(
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ],
           ),
           //
           //- - - - - - - - - - - - - -
@@ -42,30 +60,43 @@ class _SquadDetailsState extends State<SquadDetails> {
               child: ASurfaceContainer(
                 child: Column(
                   children: [
+                    //
+
+                    AText.h3("Horas por membro"),
+
+                    //
+                    SizedBox(height: 32.sp),
                     SizedBox(
                       width: 1.sw,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SizedBox(
-                            width: 190.sp,
-                            child: MDatePickerInput(
-                              controller: controller.inputInitialDate,
-                              label: "Inicio",
-                              onSelect: (selectedDate) {
-                                controller.onSelectInitialDate(selectedDate);
-                              },
+                          //
+                          Flexible(
+                            child: SizedBox(
+                              width: 190.w,
+                              child: MDatePickerInput(
+                                controller: controller.inputInitialDate,
+                                label: "Inicio",
+                                onSelect: (selectedDate) {
+                                  controller.onSelectInitialDate(selectedDate);
+                                },
+                              ),
                             ),
                           ),
+
+                          //
                           SizedBox(width: 10.sp),
-                          SizedBox(
-                            width: 190.sp,
-                            child: MDatePickerInput(
-                              controller: controller.inputEndDate,
-                              label: "Fim",
-                              onSelect: (selectedDate) {
-                                controller.onSelectEndDate(selectedDate);
-                              },
+                          Flexible(
+                            child: SizedBox(
+                              width: 190.w,
+                              child: MDatePickerInput(
+                                controller: controller.inputEndDate,
+                                label: "Fim",
+                                onSelect: (selectedDate) {
+                                  controller.onSelectEndDate(selectedDate);
+                                },
+                              ),
                             ),
                           ),
                         ],

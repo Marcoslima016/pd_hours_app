@@ -59,15 +59,15 @@ class MDatePickerInput extends StatelessWidget {
               contentPadding: EdgeInsets.all(0),
               prefixIcon: Icon(
                 Icons.calendar_today,
-                size: 24.sp,
+                size: AppController.instance.runningInMobile ? 20.sp : 24.sp,
                 color: const Color.fromARGB(255, 232, 232, 232),
               ),
               fillColor: AppTheme.colors.surface,
               // filled: true,
               hintText: "00/00/0000",
               hintStyle: TextStyle(
-                fontSize: 20.sp,
-                color: const Color.fromARGB(255, 232, 232, 232),
+                fontSize: AppController.instance.runningInMobile ? 15.sp : 20.sp,
+                color: const Color.fromARGB(255, 236, 236, 236),
                 fontWeight: FontWeight.w400,
                 height: 1,
               ),

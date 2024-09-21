@@ -121,7 +121,7 @@ class _SquadsListPageState extends State<SquadsListPage> {
             AppController.instance.runningInMobile
                 ? InkWell(
                     onTap: () async {
-                      // SquadsController.I.onTapVisitSquad(squad);
+                      SquadsController.I.onTapVisitSquad(squad);
                     },
                     child: Padding(
                       padding: EdgeInsets.all(12.sp),
@@ -135,7 +135,7 @@ class _SquadsListPageState extends State<SquadsListPage> {
                     padding: EdgeInsets.all(5.sp),
                     child: ABoxButton.primary(
                       onClick: () async {
-                        // SquadsController.I.onTapVisitSquad(squad);
+                        SquadsController.I.onTapVisitSquad(squad);
                       },
                       text: "Visitar squad",
                       active: true,

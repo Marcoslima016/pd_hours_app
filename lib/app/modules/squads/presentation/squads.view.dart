@@ -41,7 +41,7 @@ class _SquadsScreenState extends State<SquadsScreen>
               left: 168.sp,
               right: 473.sp,
               top: 59.sp,
-              bottom: 100.sp,
+              bottom: 30.sp,
             ),
       color: AppTheme.colors.background,
       child: TabBarView(

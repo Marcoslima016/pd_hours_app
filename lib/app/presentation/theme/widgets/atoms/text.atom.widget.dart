@@ -21,6 +21,13 @@ class AText extends StatelessWidget {
     this.align,
   }) : style = AppTheme.textStyles.h2;
 
+  AText.h3(
+    this.data, {
+    super.key,
+    this.variation,
+    this.align,
+  }) : style = AppTheme.textStyles.h3;
+
   AText.h5(
     this.data, {
     super.key,

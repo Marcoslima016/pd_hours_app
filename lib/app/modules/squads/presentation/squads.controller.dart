@@ -37,6 +37,11 @@ class SquadsController extends ValueNotifier<ISquadsState> {
     tabController.animateTo(1);
   }
 
+  Future returnToSquadsList() async {
+    tabController.animateTo(0);
+    focusedSquad = null;
+  }
+
   Future onTapRedirectToCreateSquad(BuildContext context) async {
     try {
       await dependencies!.createSquadController!.run(context: context);

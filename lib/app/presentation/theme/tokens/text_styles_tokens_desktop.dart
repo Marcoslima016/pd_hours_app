@@ -26,6 +26,14 @@ class ThemeTextStylesTokensDesktop implements IThemeTextStylesTokens {
   );
 
   @override
+  final ThemeTextStyle h3 = ThemeTextStyle.style(
+    _parent.copyWith(
+      fontSize: 28,
+      color: AppTheme.colors.black,
+    ),
+  );
+
+  @override
   final ThemeTextStyle h5 = ThemeTextStyle.style(
     _parent.copyWith(
       fontSize: 12,

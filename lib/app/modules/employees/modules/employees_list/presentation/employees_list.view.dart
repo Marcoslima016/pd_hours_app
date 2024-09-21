@@ -96,7 +96,9 @@ class _EmployeesListPageState extends State<EmployeesListPage> {
 
         Container(
           width: AppController.instance.runningInMobile ? 60.sp : 100.sp,
-          margin: EdgeInsets.only(left: 32.sp, right: 32.sp),
+          margin: AppController.instance.runningInMobile
+              ? EdgeInsets.only(left: 5.sp, right: 5.sp)
+              : EdgeInsets.only(left: 32.sp, right: 32.sp),
           child: Center(
             child: Text(
               "Squad ID",
@@ -138,10 +140,9 @@ class _EmployeesListPageState extends State<EmployeesListPage> {
             //
             Container(
               width: AppController.instance.runningInMobile ? 60.sp : 100.sp,
-              margin: EdgeInsets.only(
-                left: AppController.instance.runningInMobile ? 8.sp : 32.sp,
-                right: AppController.instance.runningInMobile ? 8.sp : 32.sp,
-              ),
+              margin: AppController.instance.runningInMobile
+                  ? EdgeInsets.only(left: 5.sp, right: 5.sp)
+                  : EdgeInsets.only(left: 32.sp, right: 32.sp),
               child: Center(
                 child: AText.p(employee.squadId.toString()),
               ),

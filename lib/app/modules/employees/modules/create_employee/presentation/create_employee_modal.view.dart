@@ -83,7 +83,7 @@ class CreateEmployeeModal {
                   ),
 
                   //
-                  AppController.instance.runningInMobile ? SizedBox(height: 32.sp) : SizedBox(height: 64.sp),
+                  AppController.instance.runningInMobile ? SizedBox(height: 30.sp) : SizedBox(height: 55.sp),
                   SizedBox(
                     width: 350.w,
                     child: MTextInput(
@@ -94,7 +94,7 @@ class CreateEmployeeModal {
                   ),
 
                   //
-                  AppController.instance.runningInMobile ? SizedBox(height: 15.sp) : SizedBox(height: 32.sp),
+                  AppController.instance.runningInMobile ? SizedBox(height: 16.sp) : SizedBox(height: 16.sp),
                   SizedBox(
                     width: 350.w,
                     child: MTextInput(
@@ -106,7 +106,7 @@ class CreateEmployeeModal {
                   ),
 
                   //
-                  AppController.instance.runningInMobile ? SizedBox(height: 15.sp) : SizedBox(height: 32.sp),
+                  AppController.instance.runningInMobile ? SizedBox(height: 16.sp) : SizedBox(height: 16.sp),
                   SizedBox(
                     width: 350.w,
                     child: MTextInput(
@@ -124,7 +124,7 @@ class CreateEmployeeModal {
                   ),
 
                   //
-                  AppController.instance.runningInMobile ? SizedBox(height: 22.sp) : SizedBox(height: 32.sp),
+                  AppController.instance.runningInMobile ? SizedBox(height: 20.sp) : SizedBox(height: 22.sp),
 
                   ValueListenableBuilder(
                     valueListenable: controller.validated,

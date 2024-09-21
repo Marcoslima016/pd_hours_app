@@ -15,6 +15,7 @@ class AppTheme {
 abstract class IThemeTextStylesTokens {
   ThemeTextStyle get h1;
   ThemeTextStyle get h2;
+  ThemeTextStyle get h3;
   ThemeTextStyle get h5;
   ThemeTextStyle get p;
 }
