@@ -81,7 +81,7 @@ class TopBar extends StatelessWidget {
                 text: "Squads",
               ),
               Tab(
-                text: "Usuarios",
+                text: "Usuários",
               ),
             ],
           ),
