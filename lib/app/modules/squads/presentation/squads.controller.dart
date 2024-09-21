@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:pd_hours_app/lib.exports.dart';
 
+import 'squads.state.dart';
+
 class SquadsController extends ValueNotifier<ISquadsState> {
   SquadsDependencies? dependencies;
 
@@ -33,6 +35,11 @@ class SquadsController extends ValueNotifier<ISquadsState> {
   Future onTapVisitSquad(Squad squad) async {
     focusedSquad = squad;
     tabController.animateTo(1);
+  }
+
+  Future returnToSquadsList() async {
+    tabController.animateTo(0);
+    focusedSquad = null;
   }
 
   Future onTapRedirectToCreateSquad(BuildContext context) async {

@@ -17,7 +17,6 @@ class TPageFrame extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 1.sw,
-      height: 1.sh,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

@@ -14,6 +14,8 @@ class ListTable extends StatelessWidget {
 
   final String emptyMessage;
 
+  final Function() onTapCreate;
+
   const ListTable({
     super.key,
     required this.headerCells,
@@ -21,17 +23,26 @@ class ListTable extends StatelessWidget {
     required this.isEmpty,
     required this.name,
     required this.emptyMessage,
+    required this.onTapCreate,
   });
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        isEmpty == false ? _buildContent(context) : _buildEmptyState(context),
-        SizedBox(height: 64.sp),
+        Expanded(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                isEmpty == false ? _buildContent(context) : _buildEmptyState(context),
+              ],
+            ),
+          ),
+        ),
+        SizedBox(height: AppController.instance.runningInMobile ? 24.sp : 64.sp),
         ABoxButton.primary(
           onClick: () async {
-            SquadsController.I.onTapRedirectToCreateSquad(context);
+            onTapCreate();
           },
           text: "Criar $name",
           active: true,
@@ -45,7 +56,7 @@ class ListTable extends StatelessWidget {
     return Container(
       width: 1.sw,
       // height: 300.h,
-      margin: EdgeInsets.only(top: 32.sp),
+      margin: EdgeInsets.only(top: AppController.instance.runningInMobile ? 0.sp : 32.sp),
       child: Column(
         children: [
           //---------------------------------------------------
@@ -54,7 +65,6 @@ class ListTable extends StatelessWidget {
           _buildTableHeader(context),
 
           //-----------------------------------------------------
-
           // LINES
 
           _buildTableRows(context),
@@ -69,7 +79,15 @@ class ListTable extends StatelessWidget {
       (index) => Container(
         width: 1.sw,
         height: 43.sp,
-        decoration: const BoxDecoration(color: Color(0xfffafafa)),
+        decoration: BoxDecoration(
+          color: const Color(0xfffafafa),
+          borderRadius: index + 1 == tableLines.length
+              ? BorderRadius.only(
+                  bottomLeft: Radius.circular(8.sp),
+                  bottomRight: Radius.circular(8.sp),
+                )
+              : null,
+        ),
         child: Row(
           children: List.generate(
             tableLines[index].length,
@@ -114,7 +132,6 @@ class ListTable extends StatelessWidget {
         SvgPicture.asset(
           width: 128.w,
           "assets/icons/emoji_empty_state.svg",
-          // width: 128.sp,
         ),
         SizedBox(height: 24.sp),
         AText.p(

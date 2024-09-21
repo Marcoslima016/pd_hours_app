@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pd_hours_app/lib.exports.dart';
@@ -15,7 +14,6 @@ class CreateSquadController {
     inputName = TextEditingController();
     handleInputsUpdate();
     await CreateSquadModal(controller: this).show(context: context);
-    var p = "";
     dispose();
   }
 

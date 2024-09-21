@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pd_hours_app/app/app.exports.dart';
+import 'package:pd_hours_app/app/presentation/presentation.exports.dart';
 
-class SquadsScreen extends StatefulWidget {
-  const SquadsScreen({super.key});
+class EmployeesScreen extends StatefulWidget {
+  const EmployeesScreen({super.key});
 
   @override
-  State<SquadsScreen> createState() => _SquadsScreenState();
+  State<EmployeesScreen> createState() => _EmployeesScreenState();
 }
 
-class _SquadsScreenState extends State<SquadsScreen>
-    with AutomaticKeepAliveClientMixin<SquadsScreen>, SingleTickerProviderStateMixin {
-  late final SquadsController _squadsController;
+class _EmployeesScreenState extends State<EmployeesScreen>
+    with AutomaticKeepAliveClientMixin<EmployeesScreen>, SingleTickerProviderStateMixin {
+  late final EmployeesController _employeesController;
 
   @override
   void initState() {
     super.initState();
-    _squadsController = SquadsController(vsync: this);
-    _squadsController.initialize();
+    _employeesController = EmployeesController(vsync: this);
+    _employeesController.initialize();
   }
 
   @override
@@ -45,10 +46,9 @@ class _SquadsScreenState extends State<SquadsScreen>
             ),
       color: AppTheme.colors.background,
       child: TabBarView(
-        controller: _squadsController.tabController,
+        controller: _employeesController.tabController,
         children: const [
-          SquadsListPage(),
-          SquadDetails(),
+          EmployeesListPage(),
         ],
       ),
     );

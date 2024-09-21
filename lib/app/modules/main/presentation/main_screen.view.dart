@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pd_hours_app/app/app.exports.dart';
-import 'package:pd_hours_app/app/presentation/app.view.dart';
-
-import 'presentation.exports.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -29,22 +25,17 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
       backgroundColor: Colors.white,
       body: Column(
         children: [
+          //
           TopBar(
             tabController: _mainScreenController.tabController,
           ),
-
-          //- - - - - - - - - - - - - -
-
-          //- - - - - - - - - - - - - -
-
+          //
           Expanded(
             child: TabBarView(
               controller: _mainScreenController.tabController,
-              children: [
+              children: const [
                 SquadsScreen(),
-                Container(
-                  child: Text("2 !!!!!"),
-                ),
+                EmployeesScreen(),
               ],
             ),
           ),
