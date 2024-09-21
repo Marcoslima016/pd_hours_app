@@ -1,16 +1,29 @@
-# pd_hours_app
+# PD HOURS APP
 
-A new Flutter project.
+Flutter 3.19.0
 
-## Getting Started
+## Instruções para execução do aplicativo
 
-This project is a starting point for a Flutter application.
+### 1. Iniciar servidor (backend)
 
-A few resources to get you started if this is your first Flutter project:
+Antes de executar o app, faça a inicialização do servidor node.js. O servidor
+foi disponibilizado através de um repositório separado, onde se encontra um
+arquivo README contendo as instruções especificas da parte do backend.
+https://github.com/Marcoslima016/pd_hours_server
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### 2. Instalar pacotes Flutter
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+No diretório raiz desse projeto, execute o seguinte comando para instalar os
+pacotes utilizados no app:
+
+```
+flutter pub get
+```
+
+### 3. Realizar build e execução do app.
+
+Para rodar o app, execute o seguinte comando:
+
+```
+flutter run
+```
