@@ -39,7 +39,7 @@ class ListTable extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: AppController.instance.runningInMobile ? 24.sp : 64.sp),
+        SizedBox(height: AppController.instance.runningInMobile ? 24.sp : 54.sp),
         ABoxButton.primary(
           onClick: () async {
             onTapCreate();
@@ -136,6 +136,7 @@ class ListTable extends StatelessWidget {
         SizedBox(height: 24.sp),
         AText.p(
           emptyMessage,
+          align: TextAlign.center,
           variation: TextStyle(
             color: AppTheme.colors.grey3,
           ),

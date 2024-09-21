@@ -29,12 +29,18 @@ class CreateEmployeeController {
   }
 
   handleInputsUpdate() {
+    inputName!.addListener(() => validateInputs());
+    inputEstimatedHours!.addListener(() => validateInputs());
+    inputSquad!.addListener(() => validateInputs());
+  }
+
+  validateInputs() {
     bool success = true;
-    inputName!.addListener(() {
-      if (inputName!.text.isEmpty) success = false;
-      if (inputEstimatedHours!.text.isEmpty) success = false;
-      if (inputSquad!.text.isEmpty) success = false;
-    });
+
+    if (inputName!.text.isEmpty) success = false;
+    if (inputEstimatedHours!.text.isEmpty) success = false;
+    if (inputSquad!.text.isEmpty) success = false;
+
     validated.value = success;
   }
 

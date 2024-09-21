@@ -15,7 +15,7 @@ class EmployeesController extends ValueNotifier<IEmployeesState> {
     this.dependencies,
     required TickerProvider vsync,
   }) : super(InitialState()) {
-    tabController = TabController(vsync: vsync, length: 2);
+    tabController = TabController(vsync: vsync, length: 1);
     GetIt.I.registerSingleton<EmployeesController>(this);
     dependencies ??= EmployeesDependencies();
   }
