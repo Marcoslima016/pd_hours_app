@@ -46,6 +46,7 @@ class AppView extends StatelessWidget {
           builder: (context, child) {
             final MediaQueryData data = MediaQuery.of(context);
             return MediaQuery(
+              // ignore: deprecated_member_use
               data: data.copyWith(textScaleFactor: 1),
               child: Stack(
                 children: [

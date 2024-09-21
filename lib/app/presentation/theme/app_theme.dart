@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pd_hours_app/app/app.exports.dart';
 
-import 'theme.exports.dart';
-
 class AppTheme {
   static IThemeColorsTokens colors = ColorsLight();
 
