@@ -39,7 +39,7 @@ class ListTable extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: AppController.instance.runningInMobile ? 24.sp : 54.sp),
+        SizedBox(height: AppController.instance.runningInMobile ? 24.sp : 34.sp),
         ABoxButton.primary(
           onClick: () async {
             onTapCreate();
