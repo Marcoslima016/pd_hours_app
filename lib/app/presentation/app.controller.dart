@@ -9,7 +9,6 @@ class AppController {
   AppController._();
 
   bool get runningInMobile {
-    return true;
     if (defaultTargetPlatform == TargetPlatform.iOS || defaultTargetPlatform == TargetPlatform.android) {
       return true;
     } else {
