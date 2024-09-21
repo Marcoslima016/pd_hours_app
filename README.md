@@ -11,6 +11,8 @@ foi disponibilizado através de um repositório separado, onde se encontra um
 arquivo README contendo as instruções especificas da parte do backend.
 https://github.com/Marcoslima016/pd_hours_server
 
+O aplicativo aponta para localhost na porta 3000.
+
 ### 2. Instalar pacotes Flutter
 
 No diretório raiz desse projeto, execute o seguinte comando para instalar os

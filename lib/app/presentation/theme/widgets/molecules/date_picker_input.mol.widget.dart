@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pd_hours_app/lib.exports.dart';
@@ -56,7 +55,7 @@ class MDatePickerInput extends StatelessWidget {
               fontWeight: FontWeight.w300,
             ),
             decoration: InputDecoration(
-              contentPadding: EdgeInsets.all(0),
+              contentPadding: const EdgeInsets.all(0),
               prefixIcon: Icon(
                 Icons.calendar_today,
                 size: AppController.instance.runningInMobile ? 20.sp : 24.sp,
